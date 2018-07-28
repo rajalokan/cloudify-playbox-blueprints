@@ -1,0 +1,14 @@
+node_templates:
+
+  host_cloud_config:
+    type: cloudify.nodes.CloudInit.CloudConfig
+    properties:
+      resource_config:
+        users:
+          - name: { get_input: agent_user }
+            shell: /bin/bash
+            sudo: ['ALL=(ALL) NOPASSWD:ALL']
+            ssh_authorized_keys:
+              - { get_secret: agent_key_public }
+        packages:
+          - [ansible]

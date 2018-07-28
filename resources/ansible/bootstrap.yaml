@@ -1,0 +1,10 @@
+---
+- hosts: all
+  tasks:
+    - debug: msg="Hello Okan"
+    - pause:
+        minutes: 1
+    - debug: msg="Hello Again Okan"
+    - pause:
+        minutes: 1
+    - debug: msg="Success"

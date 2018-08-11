@@ -26,17 +26,6 @@ dsl_definitions:
 
 node_templates:
 
-  dotfiles:
-    type: cloudify.nodes.Execution
-    properties:
-      resource_config:
-        resource_list:
-          - resources/ansible/exec
-          - resources/ansible/bootstrap.yaml
-    relationships:
-      - type: cloudify.relationships.contained_in
-        target: host
-
   host:
     type:  cloudify.openstack.nodes.Server
     properties:

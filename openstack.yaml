@@ -26,17 +26,6 @@ dsl_definitions:
 
 node_templates:
 
-  dotfiles:
-    type: cloudify.nodes.Execution
-    properties:
-      resource_config:
-        resource_list:
-          - resources/ansible/exec
-          - resources/ansible/bootstrap.yaml
-    relationships:
-      - type: cloudify.relationships.contained_in
-        target: host
-
   host:
     type:  cloudify.openstack.nodes.Server
     properties:
@@ -110,7 +99,7 @@ node_templates:
     properties:
       openstack_config: *openstack_config
       use_external_resource: true
-      resource_id: { get_input: router_name }
+      resource_id: { get_input: public_router_name }
     relationships:
       - target: external_network
         type: cloudify.relationships.connected_to

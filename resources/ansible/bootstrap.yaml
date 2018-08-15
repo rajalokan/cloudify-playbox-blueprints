@@ -1,5 +1,0 @@
-  ---
-- hosts: all
-  tasks:
-    - name: Debug Comments
-      debug: msg="Hello World!!"

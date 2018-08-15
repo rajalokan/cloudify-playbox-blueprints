@@ -31,9 +31,9 @@ inputs:
     type: string
     default: { get_secret: public_subnet_name }
 
-  router_name:
+  public_router_name:
     type: string
-    default: { get_secret: router_name }
+    default: { get_secret: public_router_name }
 
   security_group_name:
     type: string

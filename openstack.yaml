@@ -99,7 +99,7 @@ node_templates:
     properties:
       openstack_config: *openstack_config
       use_external_resource: true
-      resource_id: { get_input: router_name }
+      resource_id: { get_input: public_router_name }
     relationships:
       - target: external_network
         type: cloudify.relationships.connected_to

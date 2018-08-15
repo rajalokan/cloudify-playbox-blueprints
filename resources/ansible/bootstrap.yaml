@@ -1,4 +1,5 @@
----
+  ---
 - hosts: all
-  roles:
-    - role: dotfiles
+  tasks:
+    - name: Debug Comments
+      debug: msg="Hello World!!"

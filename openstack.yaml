@@ -19,6 +19,7 @@ dsl_definitions:
     project_name: { get_secret: keystone_project_name }
     project_domain_name: { get_secret: keystone_project_domain_name }
     region: { get_secret: region }
+    insecure: true
 
 node_templates:
 

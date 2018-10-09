@@ -28,7 +28,7 @@ node_templates:
     properties:
       openstack_config: *openstack_config
       resource_id:  { get_input: server_name }
-      image: { get_secret: ubuntu_trusty_image }
+      image: { get_secret: centos_core_image }
       flavor: { get_secret: small_image_flavor  }
       agent_config:
         install_method: remote

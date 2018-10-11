@@ -16,6 +16,11 @@ inputs:
       User for connecting to agent VMs
     default: centos
 
+  resource_count:
+    description: >
+      No of resources of this type
+    default: 1
+
 
 dsl_definitions:
   openstack_config: &openstack_config
@@ -61,6 +66,8 @@ node_templates:
         target: port
       - type: cloudify.openstack.server_connected_to_security_group
         target: security_group
+      - type: cloudify.relationships.contained_in
+        target: node_scaling_tier
 
   security_group:
     type: cloudify.openstack.nodes.SecurityGroup
@@ -74,8 +81,10 @@ node_templates:
     properties:
       openstack_config: *openstack_config
     relationships:
-      - type: cloudify.relationships.contained_in
+      - type: cloudify.relationships.connected_to
         target: public_network
+      - type: cloudify.relationships.contained_in
+        target: node_scaling_tier
 
   public_network:
     type: cloudify.openstack.nodes.Network
@@ -83,6 +92,24 @@ node_templates:
       openstack_config: *openstack_config
       use_external_resource: true
       resource_id: { get_secret: public_network_name }
+
+  node_scaling_tier:
+    type: cloudify.nodes.Root
+
+
+groups:
+  node_group:
+    members:
+      - host
+      - port
+
+
+policies:
+  vm_scaling_policy:
+    type: cloudify.policies.scaling
+    properties:
+      default_instances: { get_input: resource_count }
+    targets: [node_group]
 
 
 outputs:

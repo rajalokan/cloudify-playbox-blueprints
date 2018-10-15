@@ -1,9 +1,10 @@
 # cloudify-playbox-blueprints
 
-To install run 
+To install run
 ```
 cfy install \
     https://github.com/rajalokan/cloudify-playbox-blueprints/archive/master.zip \
     --blueprint-filename openstack.yaml \
-    --blueprint-id playbox
+    --blueprint-id playbox \
+    --inputs server_name=playbox
 ```

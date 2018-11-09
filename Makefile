@@ -17,3 +17,11 @@ bootstrap_cluster:
 
 uninstall_cluster:
 	cfy uninstall playbox_cluster -p ignore_failure=true
+
+debug:
+	cfy install debug.yaml \
+		-b debug \
+		-i server_name=playbox
+
+debug_uninstall:
+	cfy uninstall debug -p ignore_failure=true

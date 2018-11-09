@@ -6,6 +6,9 @@ bootstrap:
 uninstall:
 	cfy uninstall playbox -p ignore_failure=true
 
+output:
+	cfy deployment outputs playbox
+
 bootstrap_cluster:
 	cfy install openstack.yaml \
 		-b playbox_cluster \

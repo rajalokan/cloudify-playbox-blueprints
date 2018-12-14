@@ -11,7 +11,7 @@ cfy secrets create auth_url -s <keystone_auth_url>
 cfy secrets create user_domain_name keystone_user_domain_name -s <keystone_user_domain_name>
 cfy secrets create project_name keystone_project_name -s <keystone_project_name>
 cfy secrets create project_domain_name -s <keystone_project_domain_name>
-cfy secrets create region -s region
+cfy secrets create region -s <region>
 ```
 
 To install a single playbox instance run

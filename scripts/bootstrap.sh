@@ -9,4 +9,4 @@ fi
 source /tmp/sclib.sh
 
 # Preconfigure the instance
-_preconfigure_instance playbox
+setup_all playbox
